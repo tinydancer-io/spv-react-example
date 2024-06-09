@@ -41,7 +41,7 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     return (
         // TODO: updates needed for updating and referencing endpoint: wallet adapter rework
-        <ConnectionProvider endpoint={endpoint}>
+        <ConnectionProvider endpoint={"http://" + (process.env.NEXT_PUBLIC_HOST || "127.0.0.1") +":8899"}>
             <WalletProvider wallets={wallets} onError={onError} autoConnect={autoConnect}>
                 <ReactUIWalletModalProviderDynamic>
                     {children}
